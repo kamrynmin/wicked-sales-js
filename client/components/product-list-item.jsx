@@ -8,7 +8,7 @@ function ProductListItem(props) {
         <p className="price-text">{'$' + props.price}</p>
         <h5 className="card-title">{props.name}</h5>
         <p className="card-text">{props.shortDescription}</p>
-        <a href="#" className="btn btn-primary">Go somewhere</a>
+        <a className="btn btn-primary">Product Details</a>
       </div>
     </div>
   );

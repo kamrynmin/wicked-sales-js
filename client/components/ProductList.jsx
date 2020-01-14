@@ -20,9 +20,9 @@ export default class ProductList extends React.Component {
         this.setState({ products: data });
       })
       .catch(err => {
-        this.setState({
-          products: [`the error is ${err}`]
-        });
+        this.setState(
+          console.error(err)
+        );
       });
   }
 
