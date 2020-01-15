@@ -2,10 +2,21 @@
   overflow: hidden;
   margin-top: 10px;
   margin-bottom: 10px;
+  justify-content: center;
 }
 
 .fit-image{
   width: 100%;
   object-fit: contain;
   height: 300px
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+.container-fluid{
+  padding-left: 5rem;
+  padding-right: 3.5rem;
+  padding-top: 4rem;
 }
