@@ -47,6 +47,7 @@ export default class ProductDetails extends React.Component {
                   <h4 className="card-title">{this.state.product.name}</h4>
                   <h5 className="price">{price}</h5>
                   <p className="description">{this.state.product.shortDescription}</p>
+                  <button type="button" className="btn btn-info" onClick={() => { this.props.addToCart(this.state.product); }}>Add To Cart</button>
                 </div>
 
               </div>
@@ -59,6 +60,7 @@ export default class ProductDetails extends React.Component {
         </div>
 
       );
+
     }
   }
 }
