@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderTitle from './header';
 import ProductList from './ProductList';
 import ProductDetails from './product-details';
+import CartSummary from './cart-summary';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.viewCart = this.viewCart.bind(this);
   }
 
   componentDidMount() {
@@ -53,11 +55,17 @@ export default class App extends React.Component {
     this.setState(state => ({ view: { name, params } }));
   }
 
+  viewCart(name, params) {
+    this.setState(state => ({ view: { name: 'cart', params: {} } }));
+  }
+
   toggleCatalogOrDetails() {
     if (this.state.view.name === 'catalog') {
       return (<ProductList setView={this.setView}></ProductList>);
     } else if (this.state.view.name === 'details') {
       return (<ProductDetails params={this.state.view.params} setView={this.setView} addToCart= {this.addToCart}></ProductDetails>);
+    } else if (this.state.view.name === 'cart') {
+      return (<CartSummary setview={this.setView} cart={this.state.cart}></CartSummary>);
     }
   }
 
