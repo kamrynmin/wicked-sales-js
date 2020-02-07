@@ -1,6 +1,7 @@
 import React from 'react';
 
 function CartSummaryItems(props) {
+  console.log(props);
   const price = (props.price / 100).toFixed(2);
 
   return (
