@@ -7,7 +7,7 @@ function CartSummaryItem(props) {
   };
   const imgSizing = {
     objectFit: 'contain',
-    height: '28vh'
+    height: '30vh'
   };
   return (
     <div className="card shadow-sm col-12 p-2 my-3" style={cardStyle}>
