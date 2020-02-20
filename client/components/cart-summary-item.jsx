@@ -1,26 +1,23 @@
 import React from 'react';
 
-function CartSummaryItem(props) {
-  const price = `$${(props.product.price / 100).toFixed(2)}`;
-  const cardStyle = {
-    height: '30vh'
-  };
-  const imgSizing = {
-    objectFit: 'contain',
-    height: '30vh'
-  };
-  return (
-    <div className="card shadow-sm col-12 p-2 my-3" style={cardStyle}>
-      <div className="row">
-        <img className="col-4" src={props.product.image} alt={props.product.name} style={imgSizing} />
-        <div className="col-6 my-auto">
-          <div className="card-title h5">{props.product.name}</div>
-          <div className="card-subtitle text-muted my-1">{price}</div>
-          <p className="card-text">{props.product.shortDescription}</p>
+export default class CartSummaryItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const price = `$${(this.props.item.price / 100).toFixed(2)}`;
+    return (
+      <div className="row my-3 p-2 border cart-item">
+        <div className="col-5">
+          <img height="325px" src={this.props.item.image} alt=""/>
+        </div>
+        <div className="col-7">
+          <h3>{this.props.item.name}</h3>
+          <h5 className="text-secondary">{price}</h5>
+          <p>{this.props.item.shortDescription}</p>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
-
-export default CartSummaryItem;
