@@ -55,26 +55,40 @@ export default class App extends React.Component {
     this.setState(state => ({ view: { name, params } }));
   }
 
-  viewCart(name, params) {
-    this.setState(state => ({ view: { name: 'cart', params: {} } }));
-  }
-
-  toggleCatalogOrDetails() {
+  viewCart() {
     if (this.state.view.name === 'catalog') {
-      return (<ProductList setView={this.setView}></ProductList>);
+      return (
+        <ProductList
+          setView={this.setView}>
+        </ProductList>
+      );
     } else if (this.state.view.name === 'details') {
-      return (<ProductDetails params={this.state.view.params} setView={this.setView} addToCart= {this.addToCart}></ProductDetails>);
+      return (
+        <ProductDetails
+          params={this.state.view.params}
+          setView={this.setView}
+          addToCart={this.addToCart}>
+        </ProductDetails>
+      );
     } else if (this.state.view.name === 'cart') {
-      return (<CartSummary setview={this.setView} cart={this.state.cart}></CartSummary>);
+      return (
+        <CartSummary
+          setView={this.setView}
+          Array={this.state.cart}>
+        </CartSummary>
+      );
     }
   }
 
   render() {
     return (
       <div>
-        <HeaderTitle text=" Wicked Sales" cartCount={this.state.cart.length} />
+        <HeaderTitle
+          cartItemCount={this.state.cart.length}
+          setView={this.setView}>
+        </HeaderTitle>
         <div className= "container-fluid">
-          {this.toggleCatalogOrDetails()}
+          {this.viewCart()}
         </div>
       </div>
     );
