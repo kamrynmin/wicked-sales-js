@@ -1,9 +1,6 @@
 import React from 'react';
 
 export default class CartSummaryItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const price = `$${(this.props.item.price / 100).toFixed(2)}`;
